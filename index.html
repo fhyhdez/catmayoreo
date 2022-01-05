@@ -5,99 +5,159 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f800714023.js" crossorigin="anonymous"></script>
     <title> ..::Productos Sexshop::..</title>
     <style>
-    html {
-        background: #f5f7f8;
-        font-family: 'Roboto', sans-serif;
-        -webkit-font-smoothing: antialiased;
-        padding: 20px 0;
-    }
-
-    .band {
-        width: 90%;
-        max-width: 1240px;
-        margin: 0 auto;
-
-        display: grid;
-
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        grid-gap: 20px;
-    }
-
-    @media only screen and (min-width: 500px) {
+        html {
+            background: #f5f7f8;
+            font-family: 'Roboto', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            padding: 20px 0;
+        }
+    
         .band {
-            grid-template-columns: 1fr 1fr;
+            width: 90%;
+            max-width: 1240px;
+            margin: 0 auto;
+    
+            display: grid;
+    
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            grid-gap: 20px;
         }
-
-        .item-1 {
-            grid-column: 1/ span 2;
+    
+        @media only screen and (min-width: 500px) {
+            .band {
+                grid-template-columns: 1fr 1fr;
+            }
+    
+            .item-1 {
+                grid-column: 1/ span 2;
+            }
         }
-    }
-
-    @media only screen and (min-width: 850px) {
-        .band {
-            grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+        @media only screen and (min-width: 850px) {
+            .band {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
         }
-    }
-
-
-    .card {
-        background: white;
-        text-decoration: none;
-        color: #444;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        min-height: 100%;
-
-        position: relative;
-        top: 0;
-        transition: all .1s ease-in;
-    }
-
-    .card:hover {
-        top: -2px;
-        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .card article {
-        padding: 20px;
-        flex: 1;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .card .thumb {
-        padding-bottom: 60%;
-        background-size: cover;
-        background-position: center center;
-    }
-
-    /* typography */
-    .card h1 {
-        font-size: 20px;
-        margin: 0;
-        color: #333;
-    }
-
-    .card p {
-        flex: 1;
-        /* make p grow to fill available space*/
-        line-height: 1.4;
-    }
-
-    .card span {
-        font-size: 12px;
-        font-weight: bold;
-        color: #999;
-        text-transform: uppercase;
-        letter-spacing: .05em;
-        margin: 2em 0 0 0;
-    }
+    
+    
+        .card {
+            background: white;
+            text-decoration: none;
+            color: #444;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+    
+            position: relative;
+            top: 0;
+            transition: all .1s ease-in;
+        }
+    
+        .card:hover {
+            top: -2px;
+            box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+        }
+    
+        .card article {
+            padding: 20px;
+            flex: 1;
+    
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    
+        .card .thumb {
+            padding-bottom: 60%;
+            background-size: cover;
+            background-position: center center;
+        }
+    
+        /* typography */
+        .card h1 {
+            font-size: 20px;
+            margin: 0;
+            color: #333;
+        }
+    
+        .card p {
+            flex: 1;
+            /* make p grow to fill available space*/
+            line-height: 1.4;
+        }
+    
+        .card span {
+            font-size: 12px;
+            font-weight: bold;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            margin: 2em 0 0 0;
+        }
+        
+    
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container a {
+            padding: 10px;
+            background: teal;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .modal {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.open {
+            visibility: visible;
+            opacity: 1;
+            transition-delay: 0s;
+        }
+        .modal-bg {
+            position: absolute;
+            background: teal;
+            width: 100%;
+            height: 100%;
+        }
+        .modal-container {
+            border-radius: 10px;
+            background: #fff;
+            position: relative;
+            padding: 30px;
+        }
+        .modal-close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            outline: none;
+            appearance: none;
+            color: red;
+            background: none;
+            border: 0px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    
     </style>
 </head>
 
@@ -109,155 +169,206 @@
                 <div class="thumb" style="background-image: url(images/principal.jpg);"></div>
                 <article>
                     <h1>*LIQUIDACIÓN DE FIN DE AÑO -20% DESCUENTO COMPRAS MAYORES DE $1500*</h1>
-                    <span>Actualizado 30/Diciembre/2021</span>
+                    <span>Actualizado 31/Diciembre/2021<br>Válido hasta 6 de enero 2022.</span>
                 </article>
             </a>
         </div>
         <div class="item-2" id="afrodisiacos">
-            <a href="images/img35.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img35.jpg);"></div>
                 <article>
                     <h1>Yombina cubana negra </h1>
                     <span>$148.72 c/u<br>10 existencias</span>
+                    <div class="container">
+                        <a data-modal="modal-ycblack"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="afrodisiacos">
-            <a href="images/img39.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img39.jpg);"></div>
                 <article>
                     <h1>Afrodisíacos gotas</h1>
                     <span>
-                        Yombina cubana $90.74(1)<br>
-                        Yombina china  $143.52(1)<br>
-                        Mosca española mujer $158.60(1)
+                        Yombina cubana $90.74(3)<br>
+                        Yombina china  $143.52(2)<br>
+                        Mosca española mujer $158.60(3)
                     </span>
+                    <div class="container">
+                        <a data-modal="modal-ycubana"><i class="fas fa-flask"></i> Yombina cubana <i class="fas fa-heart"></i></a>
+                    </div>
+                    <div class="container">
+                        <a data-modal="modal-ychina"><i class="fas fa-flask"></i> Yombina China <i class="fas fa-heart"></i></a>
+                    </div>
+                    <div class="container">
+                        <a data-modal="modal-memujer"><i class="fas fa-flask"></i> Mosca Española Mujer <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="afrodisiacos">
-            <a href="images/img41.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img41.jpg);"></div>
                 <article>
                     <h1>Sexwoman 10ml </h1>
                     <span>$163.80 c/u<br>12 existencias</span>
+                    <div class="container">
+                        <a data-modal="modal-aws"><i class="fas fa-flask"></i> Mosca Española Mujer <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
-        </div>
-        <div class="item-2" id="afrodisiacos">
-            <a href="images/img54.jpg" class="card">
-                <div class="thumb" style="background-image: url(images/img54.jpg);"></div>
-                <article>
-                    <h1>Mosca española chicle </h1>
-                    <span>$110.20 c/u<br>5 existencias</span>
-                </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="lubricantes">
-            <a href="images/img14.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img14.jpg);"></div>
                 <article>
                     <h1>Lubricante LovLub sobre 10grs</h1>
                     <span>$15.60 c/u<br>12 chocolate y 13 cereza</span>
+                    <div class="container">
+                        <a data-modal="modal-lslv"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-3" id="lubricantes">
-            <a href="images/img_a25.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_a25.jpg);"></div>
                 <article>
                     <h1>Sobre Femenine Arousal gel</h1>
                     <span>$18.20 c/u<br>3 existencias</span>
+                    <div class="container">
+                        <a data-modal="modal-lfa"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="lubricantes">
-            <a href="images/img25.jpg" class="card">
+            <div class="card">
+                <div class="thumb" style="background-image: url(images/img51.jpg);"></div>
+                <article>
+                    <h1>Extasis chico </h1>
+                    <span>8 existencias(2 durazno, 2 frutas, 2 uva, 2 choco)</span>
+                    <div class="container">
+                        <a data-modal="modal-lec"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="item-2" id="lubricantes">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img25.jpg);"></div>
                 <article>
                     <h1>Anal xtasy </h1>
                     <span>$90.35 c/u<br>15 existencias</span>
+                    <div class="container">
+                        <a data-modal="modal-laxtasy"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="lub-retardantes">
-            <a href="images/img11.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img11.jpg);"></div>
                 <article>
                     <h1>Retardin crema 15grs</h1>
                     <span>$83.20 c/u<br>10 existencias</span>
+                    <div class="container">
+                        <a data-modal="modal-retardin"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="lub-retardantes">
-            <a href="images/img12.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img12.jpg);"></div>
                 <article>
                     <h1>Prolongel 20grs</h1>
                     <span>$76.70 c/u<br>5 existencias</span>
+                    <div class="container">
+                        <a data-modal="modal-prolongel"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="lub-retardantes">
-            <a href="images/img13.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img13.jpg);"></div>
                 <article>
                     <h1>XTIME spray retardante 30ml</h1>
                     <span>
                         $76.70 c/u <br>4 existencias
                     </span>
+                    <div class="container">
+                        <a data-modal="modal-xtime"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-4" id="lub-retardantes">
-            <a href="images/img_b2.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_b2.jpg);"></div>
                 <article>
                     <h1>Mr thick dick enlarguer</h1>
                     <span>
                         $85.80  c/u (2 existencias)
                     </span>
+                    <div class="container">
+                        <a data-modal="modal-mrthick"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="lub-retardantes">
-            <a href="images/img23.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img23.jpg);"></div>
                 <article>
                     <h1>Instant erection cream 0.5oz </h1>
                     <span>$132.60 c/u<br>3 existencias</span>
+                    <div class="container">
+                        <a data-modal="modal-instant"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="pastillas">
-            <a href="images/img24.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img24.jpg);"></div>
                 <article>
                     <h1>Ibiza gold blister 1caps. </h1>
                     <span>$97.50 c/u<br>3 existencias</span>
+                    <div class="container">
+                        <a data-modal="modal-ibiza"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="pastillas">
-            <a href="images/img21.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img21.jpg);"></div>
                 <article>
                     <h1>Powerman blister c/4 tabs. </h1>
                     <span>$143.50 c/u<br>2 existencias</span>
+                    <div class="container">
+                        <a data-modal="modal-powerman"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="pastillas">
-            <a href="images/img37.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img37.jpg);"></div>
                 <article>
                     <h1>Paradise retardante blister 10caps </h1>
                     <span>$165.88 c/u<br>1 existencias</span>
+                    <div class="container">
+                        <a data-modal="modal-paradise"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="lencerias">
-            <a href="images/img32.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img32.jpg);"></div>
                 <article>
                     <h1>Lencería</h1>
@@ -265,462 +376,1184 @@
                         Liguero (1 existencia) $102.5<br>
                         Medias red con línea $55 (3 existencias)<br>
                         Medias lisas $50 (3 existencias)</span>
+                        <div class="container">
+                            <a href="images/img32.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+                        </div>    
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-3" id="lencerias">
-            <a href="images/img_a3.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_a3.jpg);"></div>
                 <article>
                     <h1>Vestido stoking #8891</h1>
                     <span>$128.70 c/u<br>1 existencias</span>
+                    <div class="container">
+                        <a href="images/img_a3.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-3" id="lencerias">
-            <a href="images/img_a4.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_a4.jpg);"></div>
                 <article>
                     <h1>Leotardo mod 8825</h1>
                     <span>$128.70 c/u<br>1 existencias</span>
+                    <div class="container">
+                        <a href="images/img_a4.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-3" id="lencerias">
-            <a href="images/img_a5.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_a5.jpg);"></div>
                 <article>
                     <h1>Leotardo nod 8833</h1>
                     <span>$128.70 c/u<br>1 existencias</span>
+                    <div class="container">
+                        <a href="images/img_a5.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-3" id="lencerias">
-            <a href="images/img_a6.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_a6.jpg);"></div>
                 <article>
                     <h1>Coordinado mod CM192-01</h1>
-                    <span>$178.10 c/u<br>N existencias</span>
+                    <span>$178.10 c/u<br>1 existencias</span>
+                    <div class="container">
+                        <a href="images/img_a6.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-3" id="lencerias">
-            <a href="images/img_a7.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_a7.jpg);"></div>
                 <article>
                     <h1>Bata enfermera CM126</h1>
                     <span>$195 c/u<br>1 existencias</span>
+                    <div class="container">
+                        <a href="images/img_a7.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-3" id="lencerias">
-            <a href="images/img_a8.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_a8.jpg);"></div>
                 <article>
                     <h1>Body playboy CM302</h1>
                     <span>$208 c/u<br>1 existencias</span>
+                    <div class="container">
+                        <a href="images/img_a8.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-3" id="lencerias">
-            <a href="images/img_a9.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_a9.jpg);"></div>
                 <article>
                     <h1>Disfraz colegiala II</h1>
                     <span>$195 c/u<br>1 existencias</span>
+                    <div class="container">
+                        <a href="images/img_a9.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-3" id="lencerias">
-            <a href="images/img_a10.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_a10.jpg);"></div>
                 <article>
                     <h1>Gatubela Calado CM304</h1>
                     <span>$208 c/u<br>1 existencias</span>
+                    <div class="container">
+                        <a href="images/img_a10.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-3" id="lencerias">
-            <a href="images/img_a11.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_a11.jpg);"></div>
                 <article>
                     <h1>Tanga stripper tm167</h1>
                     <span>$46.80 c/u<br>1 existencias</span>
+                    <div class="container">
+                        <a href="images/img_a11.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-3" id="lencerias">
-            <a href="images/img_a12.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_a12.jpg);"></div>
                 <article>
                     <h1>Tanga elefante tm125</h1>
                     <span>$46.80 c/u<br>3 existencias(2 negras , 1 roja)</span>
+                    <div class="container">
+                        <a href="images/img_a12.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-3" id="lencerias">
-            <a href="images/img_a14.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_a14.jpg);"></div>
                 <article>
-                    <h1>Tangra FRACK tm110</h1>
+                    <h1>Tanga FRACK tm110</h1>
                     <span>$46.80 c/u<br>2 existencias</span>
+                    <div class="container">
+                        <a href="images/img_a14.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-3" id="lencerias">
-            <a href="images/img_a15.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_a15.jpg);"></div>
                 <article>
                     <h1>Tanga jaguar</h1>
                     <span>$54.60 c/u<br>1 existencias</span>
+                    <div class="container">
+                        <a href="images/img_a15.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="bondage">
-            <a href="images/img5.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img5.jpg);"></div>
                 <article>
                     <h1>Esposas Fetish fantasy series</h1>
                     <span>
                         $167.70 c/u<br>3 existencias
                     </span>
+                    <div class="container">
+                        <a data-modal="modal-esposas"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-3" id="bondage">
-            <a href="images/img_a33.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_a33.jpg);"></div>
                 <article>
                     <h1>Arnes vinil tm122</h1>
                     <span>$78 c/u<br>2 existencias</span>
+                    <div class="container">
+                        <a data-modal="modal-tm122"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-3" id="toys-var">
-            <a href="images/img_a26.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_a26.jpg);"></div>
                 <article>
                     <h1>Anillo con vibración doble estimulación</h1>
                     <span>$85.80 c/u<br>2 existencias</span>
+                    <div class="container">
+                        <a data-modal="modal-andd"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="toys-var">
-            <a href="images/img26.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img26.jpg);"></div>
                 <article>
                     <h1>Classix Duo-Tone Balls </h1>
                     <span>$141.70 c/u<br>2 existencias</span>
+                    <div class="container">
+                        <a data-modal="modal-duotone"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="toys-var">
-            <a href="images/img15.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img15.jpg);"></div>
                 <article>
                     <h1>Bala vibradora calexotics s/blister</h1>
                     <span>
                         $111.80 c/u<br>2 clear, 2 smoke, 1 morada.<br> 5 total<br> Excelente vibración!!!
                     </span>
+                    <div class="container">
+                        <a data-modal="modal-balacex"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="fundas">
-            <a href="images/img2.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img2.jpg);"></div>
                 <article>
                     <h1>Funda extensión real feel blister nacional</h1>
                     <span>Con estimulador de clítoris $162.50</span>
+                    <div class="container">
+                        <a data-modal="modal-frnac"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-4" id="fundas">
-            <a href="images/img_b5.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_b5.jpg);"></div>
                 <article>
                     <h1>Funda Real feel pipedream</h1>
                     <span>
                         Mod.PD2405-21 $206.54  c/u (1 existencias)
                     </span>
+                    <div class="container">
+                        <a data-modal="modal-frfpipe"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="fundas">
-            <a href="images/img31.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img31.jpg);"></div>
                 <article>
                     <h1>Funda extension silicon</h1>
                     <span>
-                        Senso Extension calexotics $138.44<br><del>Funda silicon sleeve $97.50 *Agotado</del> 
+                        Senso Extension calexotics $138.44
                     </span>
+                    <div class="container">
+                        <a data-modal="modal-fexcex"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-3" id="playself">
-            <a href="images/img_a28.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_a28.jpg);"></div>
                 <article>
                     <h1>Masturbador forma vag</h1>
                     <span>$132.60 c/u<br>2 existencias</span>
+                    <div class="container">
+                        <a data-modal="modal-mastfv"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-3" id="playself">
-            <a href="images/img_a31.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_a30.jpg);"></div>
                 <article>
                     <h1>Masturbador SexyCity</h1>
                     <span>$119.60 c/u<br>1 existencias</span>
+                    <div class="container">
+                        <a data-modal="modal-mastcity"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="toy-vibes">
-            <a href="images/img27.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img27.jpg);"></div>
                 <article>
                     <h1>Slim Mini Vibe vibrador </h1>
                     <span>$127.40 c/u<br>2 rosa, 2 azul, 2 morado</span>
+                    <div class="container">
+                        <a data-modal="modal-slimvb"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="toy-vibes">
-            <a href="images/img28.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img28.jpg);"></div>
                 <article>
                     <h1>Vib. shanes world morado </h1>
                     <span>$123.50 c/u<br>1 existencia</span>
+                    <div class="container">
+                        <a data-modal="modal-vbshane"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="toy-vibes">
-            <a href="images/img1.jpg" class="card">
-                <div class="thumb" style="background-image: url(images/img1.jpg);"></div>
+            <div class="card">
+                <div class="thumb" style="background-image: url(images/vib_gk_10066_rosa_medidas.jpg);"></div>
                 <article>
                     <h1>Vibradores GK varios modelos $215.80 c/u</h1>
                     <span>
-                        <br> *en orden de aparición
-                        <br>GK10066-B Big Shot pink
-                        <br>GK10070-D Big Boy pink
-                        <br> <del>GK10067-D Head honcho carne *agotado</del>
+                        GK10066 Big Shot pink
                     </span>
+                    <div class="container">
+                        <a data-modal="modal-GK10066r"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
-        <div class="item-4" id="toy-vibes">
-            <a href="images/img_b3.jpg" class="card">
-                <div class="thumb" style="background-image: url(images/img_b3.jpg);"></div>
+        <div class="item-2" id="toy-vibes">
+            <div class="card">
+                <div class="thumb" style="background-image: url(images/vib_gk10067_rosa_1gg_medidas.jpg);"></div>
                 <article>
-                    <h1>Vibradores GK $215.80 c/u</h1>
+                    <h1>Vibradores GK varios modelos $215.80 c/u</h1>
                     <span>
-                        <br> *en orden de aparición
-                        <br<del>GK10066-D Big Shot carne (1 existencia)</del>
-                        <br>GK10067-B Head honcho pink (1 existencia)
+                        GK10067 Head Honcho pink
                     </span>
+                    <div class="container">
+                        <a data-modal="modal-GK10067r"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-4" id="toy-vibes">
-            <a href="images/img_b4.jpg" class="card">
-                <div class="thumb" style="background-image: url(images/img_b4.jpg);"></div>
+            <div class="card">
+                <div class="thumb" style="background-image: url(images/vib_gk10069_rosa_1_medidas.jpg);"></div>
                 <article>
                     <h1>Vibrador GK largo</h1>
                     <span>
                         Modelo GK10069-B   Curved Slim multispeed vibrator pink
                         <br>$230.10  c/u (1 existencias)
                     </span>
+                    <div class="container">
+                        <a data-modal="modal-GK10069r"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
+        </div>
+        <div class="item-4" id="toy-vibes">
+            <div class="card">
+                <div class="thumb" style="background-image: url(images/vib_gk10070-D_rosa_1_medidas.jpg);"></div>
+                <article>
+                    <h1>Vibrador GK grueso</h1>
+                    <span>
+                        Modelo GK10070-B  Big Boy vibrator pink
+                        <br>$230.10  c/u (1 existencias)
+                    </span>
+                    <div class="container">
+                        <a data-modal="modal-GK10070r"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
+                </article>
+            </div>
         </div>
         <div class="item-2" id="toy-vibes">
-            <a href="images/img29.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img29.jpg);"></div>
                 <article>
                     <h1>Glitters Dual Teaser pink </h1>
                     <span>$344.50 c/u<br>1 existencia - color rosa</span>
+                    <div class="container">
+                        <a data-modal="modal-vbglitters"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-4" id="toy-vibes">
-            <a href="images/img_b1.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_b1.jpg);"></div>
                 <article>
                     <h1>Vibrador Jelly Caribear #4</h1>
                     <span>
                         $210.60  c/u (1 existencias)
                     </span>
+                    <div class="container">
+                        <a data-modal="modal-jelly4"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="toy-plug">
-            <a href="images/img6.jpg" class="card">
-                <div class="thumb" style="background-image: url(images/img6.jpg);"></div>
-                <article>
-                    <h1>Ducha anal calexotics</h1>
-                    <span>
-                        color naranja $119.60 c/u <br>2 existencias
-                    </span>
-                </article>
-            </a>
-        </div>
-        <div class="item-2" id="toy-plug">
-            <a href="images/img10.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img10.jpg);"></div>
                 <article>
                     <h1>Bolas anales blush Basic Beads</h1>
                     <span>$115 c/u<br>6 existencias(4 moradas, 2 rosas)</span>
+                    <div class="container">
+                        <a data-modal="modal-bablush"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="toy-plug">
-            <a href="images/img30.jpg" class="card">
-                <div class="thumb" style="background-image: url(images/img30.jpg);"></div>
+            <div class="card">
+                <div class="thumb" style="background-image: url(images/BL-24311-1.jpg);"></div>
                 <article>
                     <h1>Plugs anales blush</h1>
-                    <span>Slim Anal Plug morado $84.50 (1 existencia)<br>Large Anal Plug $101.40 c/u(2 existencias)</span>
+                    <span>
+                        Slim Anal Plug morado $84.50 (1 existencia)<br>
+                    </span>
+                    <div class="container">
+                        <a data-modal="modal-pabslim"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
+        </div>
+        <div class="item-2" id="toy-plug">
+            <div class="card">
+                <div class="thumb" style="background-image: url(images/BL-24212_1.jpg);"></div>
+                <article>
+                    <h1>Plugs anales blush</h1>
+                    <span>
+                        Large Anal Plug $101.40 c/u(2 existencias)
+                    </span>
+                    <div class="container">
+                        <a data-modal="modal-pablarge"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
+                </article>
+            </div>
         </div>
         <div class="item-4" id="toy-plug">
-            <a href="images/img_b6.jpg" class="card">
-                <div class="thumb" style="background-image: url(images/img_b6.jpg);"></div>
+            <div class="card">
+                <div class="thumb" style="background-image: url(images/BL-24510_1.jpg);"></div>
                 <article>
                     <h1>Plug anal Curvy blush</h1>
                     <span>
                         Mod. BL-24510 $67.60  c/u (existencias)
                     </span>
+                    <div class="container">
+                        <a data-modal="modal-pabcurvy"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="toy-plug">
-            <a href="images/img17.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img16.jpg);"></div>
                 <article>
                     <h1>Plug anal silicon con piedra roja</h1>
                     <span>
                         $78.80 c/u incluye bolsita<br>2 existencias
                     </span>
+                    <div class="container">
+                        <a data-modal="modal-pastone"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="toy-plug">
-            <a href="images/img18.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img18.jpg);"></div>
                 <article>
                     <h1>Mini plug anal morado</h1>
                     <span>$38.50 c/u<br>1 existencia</span>
+                    <div class="container">
+                        <a data-modal="modal-pamini"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-4" id="toy-plug">
-            <a href="images/img_b7.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_b7.jpg);"></div>
                 <article>
                     <h1>Mini plug anal liso #2</h1>
                     <span>
                         Mod. SA104-2 #2 $63  c/u (2 existencias)
                     </span>
+                    <div class="container">
+                        <a data-modal="modal-pno2"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-4" id="toy-plug">
-            <a href="images/img_b8.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_b8.jpg);"></div>
                 <article>
                     <h1>Mini plug anal venoso #1</h1>
                     <span>
                         Mod.SA104-1 $63  c/u (1 existencias)
                     </span>
+                    <div class="container">
+                        <a data-modal="modal-pno1"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-4" id="toy-plug">
-            <a href="images/img_b9.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_b9.jpg);"></div>
                 <article>
                     <h1>Mini consolador con testiculos grandes #7</h1>
                     <span>
                         Mod.SA104-7 $74.10  c/u (existencias)
                     </span>
+                    <div class="container">
+                        <a data-modal="modal-pno7"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="dildos">
-            <a href="images/img3.jpg" class="card">
-                <div class="thumb" style="background-image: url(images/img3.jpg);"></div>
+            <div class="card">
+                <div class="thumb" style="background-image: url(images/dildo_blister_largo_2_medidas.jpg);"></div>
                 <article>
                     <h1>Consolador Blister nacional c/u</h1>
                     <span>
                         Largo (color chocolate y café claro) $175.50
-                        <br> Cabezón (colo negro)$175.50
                     </span>
+                    <div class="container">
+                        <a data-modal="modal-dldcafe"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
-        </div>
-        <div class="item-3" id="dildos">
-            <a href="images/img_a16.jpg" class="card">
-                <div class="thumb" style="background-image: url(images/img_a16.jpg);"></div>
-                <article>
-                    <h1>Consolador Blister Real Feel</h1>
-                    <span>$160.45 c/u<br>1 existencia del modelo</span>
-                </article>
-            </a>
-        </div>
-        <div class="item-3" id="dildos">
-            <a href="images/img_a17.jpg" class="card">
-                <div class="thumb" style="background-image: url(images/img_a17.jpg);"></div>
-                <article>
-                    <h1>Consolador Blister Real Feel</h1>
-                    <span>$160.45 c/u<br>1 existencia del modelo</span>
-                </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="dildos">
-            <a href="images/img4.jpg" class="card">
-                <div class="thumb" style="background-image: url(images/img4.jpg);"></div>
+            <div class="card">
+                <div class="thumb" style="background-image: url(images/dildo_blister_largo_1_medidas.jpg);"></div>
+                <article>
+                    <h1>Consolador Blister nacional c/u</h1>
+                    <span>
+                        Largo (color chocolate y café claro) $175.50
+                    </span>
+                    <div class="container">
+                        <a data-modal="modal-dldcarne"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="item-2" id="dildos">
+            <div class="card">
+                <div class="thumb" style="background-image: url(images/dildo_blister_cabezon1_medidas.jpg);"></div>
+                <article>
+                    <h1>Consolador Blister nacional c/u</h1>
+                    <span>
+                        Cabezón (colo negro)$175.50
+                    </span>
+                    <div class="container">
+                        <a data-modal="modal-dldcabezon"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="item-3" id="dildos">
+            <div class="card">
+                <div class="thumb" style="background-image: url(images/dildo_real_feel_1_medidas.jpg);"></div>
+                <article>
+                    <h1>Consolador Blister Real Feel</h1>
+                    <span>$160.45 c/u<br>1 existencia del modelo</span>
+                    <div class="container">
+                        <a data-modal="modal-dldnacrf1"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="item-3" id="dildos">
+            <div class="card">
+                <div class="thumb" style="background-image: url(images/dildo_real_feel_2_medidas.jpg);"></div>
+                <article>
+                    <h1>Consolador Blister Real Feel</h1>
+                    <span>$160.45 c/u<br>1 existencia del modelo</span>
+                    <div class="container">
+                        <a data-modal="modal-dldnacrf2"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="item-2" id="dildos">
+            <div class="card">
+                <div class="thumb" style="background-image: url(images/dildo_perfect_jelly_1_medidas.jpg);"></div>
                 <article>
                     <h1>Consolador Blister nacional Perfet Jelly</h1>
                     <span> Colores naranja y verde $175.50 c/u</span>
+                    <div class="container">
+                        <a data-modal="modal-dldjnar"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
-        </div>
-        <div class="item-3" id="dildos">
-            <a href="images/img_a22.jpg" class="card">
-                <div class="thumb" style="background-image: url(images/img_a22.jpg);"></div>
-                <article>
-                    <h1>Flexible - consolador blister</h1>
-                    <span>$143.56 c/u<br>1 existencias del modelo</span>
-                </article>
-            </a>
-        </div>
-        <div class="item-3" id="dildos">
-            <a href="images/img_a23.jpg" class="card">
-                <div class="thumb" style="background-image: url(images/img_a23.jpg);"></div>
-                <article>
-                    <h1>Flexible - consolador blister</h1>
-                    <span>$143.56 c/u<br>1 existencias del modelo</span>
-                </article>
-            </a>
+            </div>
         </div>
         <div class="item-2" id="dildos">
-            <a href="images/img9.jpg" class="card">
+            <div class="card">
+                <div class="thumb" style="background-image: url(images/dildo_perfect_jelly_2_medidas.jpg);"></div>
+                <article>
+                    <h1>Consolador Blister nacional Perfet Jelly</h1>
+                    <span> Colores naranja y verde $175.50 c/u</span>
+                    <div class="container">
+                        <a data-modal="modal-dldjver"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="item-3" id="dildos">
+            <div class="card">
+                <div class="thumb" style="background-image: url(images/dildo_flexible_1_medidas.jpg);"></div>
+                <article>
+                    <h1>Flexible - consolador blister</h1>
+                    <span>$143.56 c/u<br>1 existencias del modelo</span>
+                    <div class="container">
+                        <a data-modal="modal-dldflex1"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="item-3" id="dildos">
+            <div class="card">
+                <div class="thumb" style="background-image: url(images/dildo_flexible_3_medidas.jpg);"></div>
+                <article>
+                    <h1>Flexible - consolador blister</h1>
+                    <span>$143.56 c/u<br>1 existencias del modelo</span>
+                    <div class="container">
+                        <a data-modal="modal-dldflex2"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="item-2" id="dildos">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img8.jpg);"></div>
                 <article>
                     <h1>Dildo nacional varios</h1>
                     <span>
                         SA100-1 real feel suelto $156<br>SA100 nacional $115.70 <br><del>SA100-14 mini $76.70 *Agotado*</del>
                     </span>
+                    <div class="container">
+                        <a data-modal="modal-dldvar1"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
         <div class="item-3" id="dildos">
-            <a href="images/img_b10.jpg" class="card">
+            <div class="card">
                 <div class="thumb" style="background-image: url(images/img_b10.jpg);"></div>
                 <article>
                     <h1>Consolador SA100-GA varios modelos</h1>
                     <span>$117.60 c/u<br>8 existencias</span>
+                    <div class="container">
+                        <a data-modal="modal-dldvar2"><i class="fas fa-flask"></i> Propiedades <i class="fas fa-heart"></i></a>
+                    </div>
                 </article>
-            </a>
+            </div>
         </div>
     </div>
+    <!-- Modals -->
+    <div class="modal" id="modal-ycblack">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Yombina Cubana Negra</h1>
+          <h3>Estimulante Sexual femenino</h3>
+          <p><strong>Estimulante Sexual femenino</strong><br />Despierta el apetito sexual en la mujer, intensificando<br />el deseo sexual puede mezclarse libremente con bebidas<br />alcoh&oacute;licas sin efectos secundarios<br /><strong>Modo de uso:</strong><br />Diluir 10 o 15 gotas en cualquier liquido fr&iacute;o el tiempo de<br />reacci&oacute;n depende de cada organismo pero no rebasa los 15 miutos<br /><strong>Presentaci&oacute;n:</strong><br />Gotero de 10 ml<br />Libre de Conservadores</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-ycubana">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Yombina Cubana</h1>
+          <h3>Estimulante Sexual femenino</h3>
+          <p>Despierta el apetito sexual en la mujer, intensificando<br />el deseo sexual no puede mezclarse con bebidas alcoholicas<br />ya que al ser el alcohol un estimulante cerebral el producto<br />se neutraliza y carece de efecto.<br /><strong>Modo de uso:</strong><br />Diluir 10 o 15 gotas en cualquier liquido fr&iacute;o el tiempo de reacci&oacute;n depende de cada organismo pero no rebasa los 15 minutos.<br />No compatible con alcoholes.<br /><strong>Presentaci&oacute;n:</strong><br />Gotero de 10 ml<br /><em>Libre de Conservadores</em></p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-ychina">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Yombina China</h1>
+          <h3>Estimulante Sexual femenino</h3>
+          <p>Despierta el apetito sexual en la mujer, intensificando<br />el deseo sexual puede mezclarse libremente con bebidas<br />alcoh&oacute;licas sin efectos secundarios<br /><strong>Modo de uso:</strong><br />Diluir 10 o 15 gotas en cualquier liquido fr&iacute;o el tiempo de<br />reacci&oacute;n depende de cada organismo pero no rebasa los 15-20 minutos.<br /><strong>Presentaci&oacute;n:</strong><br />Gotero de 10 ml<br />Libre de Conservadores</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-memujer">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Mosca española - Dama</h1>
+          <h3>Estimulante Sexual femenino</h3>
+          <p>Despierta el apetito sexual en la mujer, intensificando<br />el deseo sexual puede mezclarse libremente con bebidas<br />alcoh&oacute;licas sin efectos secundarios<br /><strong>Modo de uso:</strong><br />Diluir 15 o 20 gotas en cualquier liquido fr&iacute;o el tiempo de<br />reacci&oacute;n depende de cada organismo pero no rebasa los&nbsp;15-20 minutos.<br /><strong>Presentaci&oacute;n:</strong><br />Gotero de 15 ml.<br />Libre de Conservadores.</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-asw">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Sex Woman</h1>
+          <h3>Estimulante Sexual femenino</h3>
+          <p>La funci&oacute;n de este afrodis&iacute;acos es elevar la dopamina<br />en el sistema nervioso, para as&iacute; tener una experiencia<br />m&aacute;s placentera. Su formula est&aacute; compuestas de<br />ingredientes 100%naturales, Sex Woman esta dise&ntilde;ado<br />para facilitar la excitaci&oacute;n en la mujer y provocar la<br />liberaci&oacute;n de multi-orgasmos durante el coito, puede<br />mezclarse libremente con bebidas.<br /><strong>Modo de uso:</strong><br />Diluir 15 o 20 gotas en cualquier liquido fr&iacute;o el tiempo<br />de reacci&oacute;n depende de cada organismo pero no<br />rebasa los 15 minutos<br /><strong>Presentaci&oacute;n:</strong><br />Gotero de 10 ml<br />Libre de Conservadores.</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-lslv">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>LovLub sabores</h1>
+          <h3>Lubricante presentación de bolsillo.</h3>
+          <p>Lubricante personal con aroma y sabor para mayor placer durante el coito, juguetes y orales.<br /><strong>Modo de uso:</strong><br />Coloca una cantidad peque&ntilde;a o deseada en la zona o el juguete y disfruta!<br /><strong>Presentaci&oacute;n:</strong><br />Sobre 10 ml<br />Base agua</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-lfa">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Femenine Arousal</h1>
+          <h3>Lubricante estimulante presentación de bolsillo.</h3>
+          <p>Lubricante personal con L-Arginina para mayor sensibilizaci&oacute;n de las m&aacute;s de 8 mil terminaciones nerviosas para generar el deseo y liberar orgasmos m&aacute;s intensos.<br /><strong>Modo de uso:</strong><br />Coloca una cantidad peque&ntilde;a en cl&iacute;toris y en la entrada vaginal, la reacci&oacute;n en menos de 5 m&iacute;nutos.&nbsp;<br />Sensibilizador *Precauci&oacute;n en pieles sensibles.<br /><strong>Presentaci&oacute;n:<br /></strong>Sobre de 3ml<br />Base agua</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-lec">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Éxtasis térmico chico</h1>
+          <h3>Lubricante presentación de bolsillo.</h3>
+          <p>Extasis es un lubricante elaborado con base en agua&nbsp;que ademas de facilitar la penetraci&oacute;n, estimulalas zonas erogenas en los genitales&nbsp;gracias a su<strong> efecto t&eacute;rmico de 3 faces.</strong><br /><strong>Primer fase</strong> se percibe al aplicarse el producto&nbsp;ya que se comenzara a sentir una sensaci&oacute;n c&aacute;lida.<br /><strong>Segunda fase</strong> se percibe al soplar ligeramente sobre el &aacute;rea&nbsp;estimulando a que la formula intensifique la sensaci&oacute;n c&aacute;lida<br /><strong>Tercer fase</strong> se percibe al contacto con la saliva sobre el &aacute;rea&nbsp;estimulando a que la formula intensifique la sensaci&oacute;n c&aacute;lida<br />sus sabores son exquisitos ya que toda su formula es de origen 100% natural,&nbsp;<span style="text-decoration: underline;">es compatible con l&aacute;tex y totalmente hipoalerg&eacute;nico.</span><br /><strong>Modo de uso</strong><br />Aplicar directamente en genitales, no necesita esperar mayor tiempo&nbsp;pues su formula es de reacci&oacute;n inmediata<br /><strong>Presentaci&oacute;n:</strong><br />Gel de 15 ml<br /><strong>Sabores:</strong><br />Fresa | Chocolate | Uva | Platano | Cereza<br />Frambuesa | Durazno | Tutti Frutti</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-laxtasy">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Anal Xtasy</h1>
+          <h3>Lubricante Anéstesico anal</h3>
+          <p>Facilita la relaci&oacute;n anal con su anestesico local, disminuye considerablemente las molestias y facilita la penetraci&oacute;n.<br /><strong>Modo de uso</strong><br />Aplicar en la zona anal por dentro y por fuera unos 5 minutos antes para mejores resultados.<br />Tambien para uso en juguetes anales.<br />* Tambien se puede colocar en glande para un efecto retardante de hasta 15min o m&aacute;s.<br /><strong>Presentaci&oacute;n:</strong><br />Gel de 15 ml<br />Base agua<br />Compatible con l&aacute;tex</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-retardin">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Retardin Crema</h1>
+          <h3>Retardante para caballero</h3>
+          <p>Mejora la capacidad del caballero para prolongar la erecci&oacute;n por m&aacute;s tiempo y de forma discreta.<br /><strong>Modo de uso</strong><br />Aplicar en el glande y dos dedos hacia abajo de &eacute;ste, la crema se tiene que desvanecer con un suave masaje unos 3-5 minutos antes de la relaci&oacute;n. <br />Sensaci&oacute;n anestesica.<br />Efecto duradero de 25-40min.<br /><strong>Presentaci&oacute;n:</strong><br />Crema de 15 ml</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-prolongel">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Prolongel</h1>
+          <h3>Retardante para caballero</h3>
+          <p>Mejora la capacidad del caballero para prolongar la erecci&oacute;n por m&aacute;s tiempo y de forma discreta.<br /><strong>Modo de uso</strong><br />Aplicar en el glande y/o hasta el cuerpo del miembro con un suave masaje, efecto casi inmediato no afecta la erecci&oacute;n.<br />Sensaci&oacute;n anestesica.<br />Efecto duradero de 25-40min.<br /><strong>Presentaci&oacute;n:</strong><br />Gel de 15 ml</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-xtime">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Xtime</h1>
+          <h3>Retardante para caballero</h3>
+          <p>Date ese tiempo EXTRA con tu pareja.<br />Mejora la capacidad del caballero para prolongar la erecci&oacute;n por m&aacute;s tiempo y de forma discreta.<br /><strong>Modo de uso</strong><br />Aplicar 1 spray en el glande del miembro y deja que se absorba, efecto casi inmediato no afecta la erecci&oacute;n.<br />Sensaci&oacute;n anestesica.<br />Efecto duradero de 40min aproximadamente.<br /><strong>Presentaci&oacute;n:</strong><br />Spray de 30ml</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-mrthick">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Crema MR Thick Dick</h1>
+          <h3>Retardante y engrosador para caballero</h3>
+          <p>Sus componentes generar una sensaci&oacute;n de grosor en el miembro al mismo tiempo que prolonga la erecci&oacute;n por m&aacute;s tiempo y de forma discreta.<br /><strong>Modo de uso</strong><br />Aplicar desde glande hacia la mitad del miembro con la erecci&oacute;n con suave masaje para disolver la crema, el efecto puede varias de acuerdo cada organismo.<br />Sensaci&oacute;n anestesica.<br />Efecto duradero de 40min aproximadamente.<br /><strong>Presentaci&oacute;n:</strong><br />Tubo 15ml</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-instant">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Crema Instant Erection</h1>
+          <h3>Generador de Erección y Retardante para caballero</h3>
+          <p>Sus componentes generar una sensaci&oacute;n caliente que ayuda a levantar la erecci&oacute;n de forma efectiva. Adem&aacute;s que su sensaci&oacute;n termica le genera mayor deseo y prolonga la erecci&oacute;n por m&aacute;s tiempo de forma discreta.<br /><strong>Modo de uso</strong><br />Aplicar desde glande hacia la mitad del miembro con la erecci&oacute;n con suave masaje para disolver la crema, el efecto puede varias de acuerdo cada organismo, pero puede ser de 5&nbsp; a 15 min.&nbsp;<br />Sensaci&oacute;n termico-anestesica.<br />Efecto duradero de 40min aproximadamente.<br />* Precauci&oacute;n para pieles sensibles.<br /><strong>Presentaci&oacute;n:</strong><br />Tubo 15ml</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-ibiza">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Ibiza</h1>
+          <h3>Pastillas para rendimiento másculino</h3>
+          <p>Obt&eacute;n 5 d&iacute;as de erecciones m&aacute;s firmes y pronta recuperaci&oacute;n entre cada relaci&oacute;n. Aumenta tu tama&ntilde;o y grosor, as&iacute; como mayor control, resistencia y retardo en la eyaculaci&oacute;n.<br />Por ser un producto 100% natural y dise&ntilde;ado por especialistas, no hay efectos secundarios y puede ser tomado por cualquier tipo de persona, incluidas las que padecen enfermedades cr&oacute;nicas (diabetes, hipertensi&oacute;n, etc.)<br /><em>Se puede tomar con cualquier tipo de bebidas, incluso sin son bebidas alcoh&oacute;licas.</em><br /><strong>Modo de uso:</strong><br />Ver&aacute;s los resultados en tan s&oacute;lo 30 minutos despu&eacute;s de haberla ingerido.<br /><strong>Presentaci&oacute;n:</strong><br />Blister 1 cap.</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-powerman">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Powerman</h1>
+          <h3>Pastillas para rendimiento másculino</h3>
+          <p>Vigorizante masculino que por sus ingredientes naturales y como suplemento alimenticio, ayuda a dar mayor vitalidad, potencia y resistencia, retardamiento de eyaculaci&oacute;n ayudando a concentrarse, mejorando el desempe&ntilde;o sexual.<br /><strong>Modo de uso:<br /></strong>Ingerir 1 tableta con cualquier l&iacute;quido fr&iacute;o, excepto alcoholes ya que disminuye sus efectos.<br />Resultados despu&eacute;s de 30-40min.<br />Efecto de rendimiento 24 a 48 hrs.<br /><strong>Presentaci&oacute;n:<br /></strong>Caja con 4 tabletas de 500mg c/u.<br /><br /></p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-paradise">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Paradise</h1>
+          <h3>Pastillas para rendimiento másculino</h3>
+          <p><span style="text-decoration: underline;">Multi retardador de la Eyaculaci&oacute;n</span><br />Retarda la eyaculaci&oacute;n por lo menos por 40 minutos,<br />permitiendo extender por mayor tiempo el coito<br />puede mezclarse libremente con bebidas alcoh&oacute;licas<br />sin efectos secundarios<br /><strong>Modo de uso:</strong><br />Tomar una capsula 30 minutos previos al coito, el tiempo<br />de efecto en el organismo de este producto es de 48 horas,<br />durante ese tiempo no es necesario ingerirlo nuevamente<br /><strong>Presentaci&oacute;n:</strong><br />Caja con 10 capsulas</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-esposas">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Esposas Begginers</h1>
+          <h3>Juguetes Bondage</h3>
+          <p>Juega y diviertet&eacute; con mayor &eacute;xtasis con tu pareja y ata esa pasi&oacute;n!<br />Esposas para principiantes totalmente seguras, con dispositivo de seguridad por si pierden las llaves.<br /><strong>Presentaci&oacute;n:<br /></strong>Caja con 1 esposas y llaves<br /><strong>Material:&nbsp;</strong><br />Metal</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-tm122">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Arnes Vinil TM122</h1>
+          <h3>Bondage</h3>
+          <p>Arn&eacute;s para caballero o para dildo, soporta un grosor m&aacute;ximo de 4.5cm apr&oacute;ximadamente.<br /><strong>Presentaci&oacute;n:<br /></strong>1 arn&eacute;s<br />Unitalla<br /><strong>Material:&nbsp;<br /></strong>Piel y el&aacute;stico en pierna, cintura ajustable&nbsp;</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-andd">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Anillo doble estimulación</h1>
+          <h3>Anillos</h3>
+          <p>Anillo suave de silicona con grumos y doble balita para un mejor climax.<br />Mejora la erecci&oacute;n y la prolonga por m&aacute;s tiempo.<br /><strong>Presentaci&oacute;n:<br /></strong>Unitalla<br /><strong>Material:&nbsp;<br /></strong>Silicon</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-duotone">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Classix Duo-Tone Balls</h1>
+          <h3>Mejora suelo pélvico</h3>
+          <p>Disfrute de sensaciones internas sin parar con estas elegantes bolas para ejercicios kegel o jugueteo con la pareja</p>
+    <p>Incluye: dos bolas de pl&aacute;stico ABS totalmente seguras para el uso intimo, lisas con una bola de metal m&aacute;s peque&ntilde;a en el interior.</p>
+    <p>USO: Ins&eacute;rtelos con un poco de lubricante y disfruta dando vueltas con cada movimiento de tu cuerpo. &Uacute;selos por v&iacute;a vaginal pero no anal (pueden desaparecer all&iacute;). Para obtener los mejores orgasmos obt&eacute;n mejores resultados con el ejercicio diario por al menos 20 - 40 min al d&iacute;a ;)</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    
+    <div class="modal" id="modal-balacex">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Bala vibradora calexotics s/blister</h1>
+          <h3>Mejora suelo pélvico / Masturbación / Estimulador</h3>
+          <p>(Colores: morado, translucido/claro, humo)<br />* Personaliza tu placer &iacute;ntimamente er&oacute;tico con el discreto y compacto estimulador. <br />* El peque&ntilde;o masajeador personal de varias velocidades cuenta con una intensa estimulaci&oacute;n vibratoria adecuada para el contacto directo e indirecto. <br />* El elegante estimulador est&aacute; hecho de ABS plateado y est&aacute; conectado a un controlador de pl&aacute;stico de mano delgado en forma de l&aacute;grima, con controles f&aacute;ciles de deslizar. <br />* La bala mide un tama&ntilde;o peque&ntilde;o de 2 "x 1" / 5 cm x 2.5 cm y ofrece sensaciones y hormigueos vibrantes intensamente placenteros, para la m&aacute;xima satisfacci&oacute;n interna y externa. <br />* Introduzca la bala extra&iacute;ble dentro de un producto( masturbador, dildos, fundas, etc) de placer para disfrutar del &eacute;xtasis vibrante, o aplique contacto de estimulaci&oacute;n directa a esos puntos sensuales dulces y zonas er&oacute;genas. <br />* Para intensificar las buenas vibraciones placenteras, use siempre un lubricante de calidad con este juguete. <br />* Limpie la bala de varias velocidades con un spray limpiador de juguetes antes y despu&eacute;s de cada uso.</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-frnac">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Funda Real Feel Nacional Blister</h1>
+          <h3>Funda / Estimulador / Juguete</h3>
+          <p><strong>Color disponible:</strong> CARNE<br /><strong>Material</strong>: Silicon/L&aacute;tex<br /><strong>Textura</strong>: Firme y smooth al tacto.<br /><strong>Cuidados</strong>: Lave con shampoo antibacterial la primera vez y despu&eacute;s de cada uso.<br /><strong>Uso</strong>: lubricante / condon, para evitar irritaciones/molestias. Puede utilizarlo para vibradores, consoladores, o en el miembro.<br />* Importante: el producto por higiene debe lavarse antes del primer uso.</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-frfpipe">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Funda Real Feel Pipedream</h1>
+          <h3>Funda / Estimulador / Juguete</h3>
+          <p>+ Realistica, s&uacute;per suave<br />+ Agranda y engrosa<br />+ Se recomienda lubricarla para usarla, y lavados con agua jabonosa fr&iacute;a con secado al aire, para evitar rasgaduras se puede colocar un poco de talco en periodos que no se use.<br /> Mantener en lugar fresco.</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-fexcex">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Senso Extension calexotics</h1>
+          <h3>Funda / Estimulador / Juguete</h3>
+          <p>+ Lubricar para estimular m&aacute;s vaginalmente<br />+ Se puede utilizar encima del dildo o miembro, se expande y amolda<br />+ Material confiable, no l&aacute;tex, silicona segura.<br />+ Recomendaciones : lavado con agua jabonosa tibia o shampoo para juguetes.</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-mastcity">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Masturbador forma SexyCity</h1>
+          <h3>Estimulador / Masturbador / Juguete</h3>
+          <p>Cuerpo mini sentada, con grumos estimuladores por dentro y ajustado.<br />+ Sensacion realistica<br />+ Lavable con agua jabonosa fr&iacute;a<br />+ Lubricalo con sensaciones calientes para mayor placer o cualquiera base agua o silicona para mejorar tu experiencia.</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-slimvb">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Slim Mini Vibe vibrador</h1>
+          <h3>Estimulador / Juguete</h3>
+          <p>Multi-velocidad para mayor placer, discreto y con textura lisa, coquetos colores y discretos.<br />Disfruta de mayor diversi&oacute;n con lubricantes calientes u org&aacute;smicos!<br /><strong>Caracter&iacute;sticas:</strong><br />3.5cm d&iacute;ametro<br />13.5cm largo total aprox.<br />Requiere 1 pila AA (no incluida)</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-vbshane">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Shanes World mini vibrador</h1>
+          <h3>Estimulador / Juguete</h3>
+          <p>Multi-velocidad para mayor placer, discreto y con textura lisa, coquetos colores y discretos.<br />Disfruta de mayor diversi&oacute;n con lubricantes calientes u org&aacute;smicos!<br /><strong>Caracter&iacute;sticas:</strong><br />3.5cm d&iacute;ametro<br />13.5cm largo total aprox.<br />Requiere 1 pila AA (no incluida)</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    
+    <div class="modal" id="modal-GK10066r">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Vibrador GK10066</h1>
+          <h3>Multi-velocidad / Estimulador / Juguete</h3>
+          <p>Multi-velocidad para mayor placer, textura con venas para mayor estimulaci&oacute;n.<br />Disfruta de mayor diversi&oacute;n con lubricantes calientes u org&aacute;smicos!<br />Requiere 2 pilas AA (no incluida)<br />* Medidas - Ver imagen completa</p>
+          <a href="images/vib_gk_10066_rosa_medidas.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-GK10067r">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Vibrador GK10067</h1>
+          <h3>Multi-velocidad / Estimulador / Juguete</h3>
+          <p>Multi-velocidad para mayor placer, textura con venas para mayor estimulaci&oacute;n.<br />Disfruta de mayor diversi&oacute;n con lubricantes calientes u org&aacute;smicos!<br />Requiere 2 pilas AA (no incluida)<br />* Medidas - Ver imagen completa</p>
+          <a href="images/vib_gk10067_rosa_1gg_medidas.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-GK10069r">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Vibrador GK10069</h1>
+          <h3>Multi-velocidad / Estimulador / Juguete</h3>
+          <p>Multi-velocidad para mayor placer, textura con venas para mayor estimulaci&oacute;n.<br />Disfruta de mayor diversi&oacute;n con lubricantes calientes u org&aacute;smicos!<br />Requiere 2 pilas AA (no incluida)<br />* Medidas - Ver imagen completa</p>
+          <a href="images/vib_gk10069_rosa_1_medidas.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-GK10070r">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Vibrador GK10070</h1>
+          <h3>Multi-velocidad / Estimulador / Juguete</h3>
+          <p>Multi-velocidad para mayor placer, textura con venas para mayor estimulaci&oacute;n.<br />Disfruta de mayor diversi&oacute;n con lubricantes calientes u org&aacute;smicos!<br />Requiere 2 pilas AA (no incluida)<br />* Medidas - Ver imagen completa</p>
+          <a href="images/vib_gk10070-D_rosa_1_medidas.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    
+    <div class="modal" id="modal-vbglitters">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Glitters Dual Teaser pink </h1>
+          <h3>Multi-velocidad / Estimulador clitoral / Juguete</h3>
+          <p>Vibrador con suaves relieves para estimular las paredes vaginales y con coqueto conejo para estimular cl&iacute;toris, de material suave y flexible, vibraci&oacute;n regulable, a prueba de agua (no sumergible).<br />Medidas: 23cm largo total, 3.6cm di&aacute;metro.<br />No incluye pilas, requiere 2 AA.<br />Te recomendamos utilizar lubricante para maximizar el placer.<br />Limpieza: agua jabonosa antibacterial sin mojar el control y secado con alguna tela que no deje pelusa.<br />Tipo de vibrador: Vaginal + clitoral<br />Material: TPE+ABS</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-jelly4">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Vibrador Jelly Caribear #4</h1>
+          <h3>Multi-velocidad / Estimulador punto G / Juguete</h3>
+          <p>Vibrador multi-velocidad 2 velocidades<br />Requiere 2 pilas AA (no incluidas)<br />Largo total 13.75cm<br />Perfecta curvatura para estimulaci&oacute;n de punto G, tama&ntilde;o ideal para estreches vaginal.</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-bablush">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Bolas anales blush Basic Beads</h1>
+          <h3>Estimulador anal/ Principiante | Avanzado / Juguete</h3>
+          <p><span>Flexible para adaptarse a su cuerpo.</span><br /><span>&bull; Conveniente anillo de recuperaci&oacute;n. Te permite a ti o a tu amante sacar lentamente las cuentas. Imagina eso.</span><br /><span>&bull; Las cuentas comienzan peque&ntilde;as y gradualmente se hacen m&aacute;s grandes, lo que le permite acomodarse c&oacute;modamente en su cadena de cuentas</span><br /><span>&bull; TOTALMENTE SEGURO - Hecho de cuerpo seguro PVC no poroso. No contiene fragancias sint&eacute;ticas, ftalatos, parafinas ni l&aacute;tex. Cumple o excede los est&aacute;ndares internacionales de seguridad de productos.</span><br /><span>****Es tu cuerpo Ten en cuenta lo que pones en &eacute;l.****</span><br /><span>&bull; Tama&ntilde;o: 12.75 "de largo</span><br /><span>+ USO: lubricar el producto, lavarlo con agua jabonosa antibacterial tibia. introducir poco a poco.</span></p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    
+    <div class="modal" id="modal-pabslim">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Plug anal blush Slim</h1>
+          <h3>Estimulador anal/ Principiante | Avanzado / Juguete</h3>
+          <p>Perfecto para principiantes y no tan principiantes que desean mayor placer.<br /><br />Con su dise&ntilde;o c&oacute;nico y una base ergon&oacute;mica, el Slim Anal Plug es f&aacute;cil de usar y c&oacute;modo para sentarse. Su material suave y flexible abrazar&aacute; tus curvas mientras permanece asegurado entre tus mejillas gui&ntilde;o gui&ntilde;o. B YOURS PLUGs son seguros para el cuerpo, libres de ftalatos y f&aacute;ciles de limpiar.<br /><br />Se recomienda utilizarlos con lubricante para maximizar el placer :)<br /><br />Largo x Ancho: 8.25 cm x 2.54 cm aprox.</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-pablarge">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Plug anal blush Large</h1>
+          <h3>Estimulador anal/ Avanzado / Juguete</h3>
+          <p>Est&aacute; dise&ntilde;ado para una comodidad y elasticidad &oacute;ptimas<br /><br />La punta c&oacute;nica permite que el tap&oacute;n anal grande se deslice hacia adentro con facilidad y luego expanda la abertura con su bombilla suavemente redondeada.<br /><br />La base ergon&oacute;mica hace que sea f&aacute;cil de usar y c&oacute;modo para sentarse. B YOURS PLUG son seguros para el cuerpo, libres de ftalatos y f&aacute;ciles de limpiar.<br /><br />Te recomendamos utilizar lubricante para maximizar el placer :)<br /><br /><span class="ui-pdp-color--BLACK ui-pdp-size--XSMALL ui-pdp-family--BOLD">Largo x Ancho</span>: 8.89 cm x 3.5 cm aprox.</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-pabcurvy">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Plug anal blush Curvy</h1>
+          <h3>Estimulador anal/ Principiante | Avanzado / Juguete</h3>
+          <p>Delgado y c&oacute;modo, el B Yours Curvy Anal Plug es una introducci&oacute;n perfecta a los plugs anales.<br /><br />Con un dise&ntilde;o c&oacute;nico y una base ergon&oacute;mica, es f&aacute;cil de usar y c&oacute;modo para sentarse. La forma ondulada ofrece un ligero estiramiento para mayor diversi&oacute;n.<br /><br />Hechos de TPE no poroso, los plugs B Yours son seguros para el cuerpo, libres de ftalatos y f&aacute;ciles de limpiar. Te recomendamos utilizarlo con un poco de lubricante con benzoca&iacute;na si es la primera vez o evitar molestias con un lubricante base agua.<br /><br /><span class="ui-pdp-color--BLACK ui-pdp-size--XSMALL ui-pdp-family--BOLD">Largo x Ancho</span>: 6.8 cm x 2 cm aprox</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    
+    <div class="modal" id="modal-pastone">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Plug anal Silicona con piedra</h1>
+          <h3>Estimulador anal/ Avanzado / Juguete</h3>
+          <p>+ Comoda sensaci&oacute;n smooth<br />+ Elegante y coqueto<br />+ Peque&ntilde;o, discreto y buen estimulante<br />+ Se recomienda lubricarlo antes de su uso<br />+ Lavarlo con shampoo para juguetes o agua jabonosa antibacterial fr&iacute;a.<br /><br />Largo x Ancho: 7 cm x 2.5 cm<br />* No contiene Caja original.</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    
+    <div class="modal" id="modal-pamini">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Plug anal mini </h1>
+          <h3>Estimulador anal/ Principiante | Avanzado / Juguete</h3>
+          <p><span data-mce-mark="1">+ Peque&ntilde;o, discreto.</span><br /><span data-mce-mark="1">+ Material confiable facil de usar y seguro, con bordes para sujeci&oacute;n sin problemas.</span><br /><span data-mce-mark="1">+ Recomendaciones: lubricar, lavar con agua jabonosa antibacterial o shampoo para juguetes.<br /><br /></span><span data-mce-mark="1">Material</span><span data-mce-mark="1">: Plastico PVC<br /><span data-mce-mark="1">Largo x Ancho</span><span data-mce-mark="1">: 7 cm x 1.5 cm aprox.</span></span></p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-pno1">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Mini plug anal liso #1 </h1>
+          <h3>Estimulador anal/ Principiante | Avanzado / Juguete</h3>
+          <p>Mini estimulador liso #1 con base forma venosa<br id="isPasted">Cuidados: Lave con shampoo antibacterial la primera vez antes y despu&eacute;s de cada uso<br>Uso: lubricante o cond&oacute;n para evitar irritaciones/molestias.&nbsp;<br><strong>Tama&ntilde;o aprox.:</strong><br>Largo 14cm &nbsp;total<br>Insertable 12cm<br>circunferencia 9cm<br><strong>Material</strong>:&nbsp;<br>Silicon/Latex<br>Tersa al tacto/ Firme<br>Compatible con arnes chico</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-pno2">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Mini plug anal liso #2 </h1>
+          <h3>Estimulador anal/ Principiante | Avanzado / Juguete</h3>
+          <p>Mini estimulador liso #2 con peque&ntilde;a base<br>Cuidados: Lave con shampoo antibacterial la primera vez antes y despu&eacute;s de cada uso<br>Uso: lubricante o cond&oacute;n para evitar irritaciones/molestias.&nbsp;<br><strong>Tama&ntilde;o aprox.:</strong><br>Largo 12.5cm &nbsp;total<br>Insertable 10cm<br>circunferencia 9.5cm<br><strong>Material</strong>:&nbsp;<br>Silicon/Latex<br>Tersa al tacto/ Firme<br>Compatible con arnes chico</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-pno7">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Mini plug anal con testiculos #7 </h1>
+          <h3>Estimulador anal/ Principiante | Avanzado / Juguete</h3>
+          <p>Mini estimulador liso con testiculos de base<br>Cuidados: Lave con shampoo antibacterial la primera vez antes y despu&eacute;s de cada uso<br>Uso: lubricante o cond&oacute;n para evitar irritaciones/molestias.&nbsp;<br><strong>Tama&ntilde;o aprox.:</strong><br>Largo 11cm &nbsp;total<br>Insertable 8.5cm<br>circunferencia 10.5cm<br><strong>Material</strong>:&nbsp;<br>Silicon/Latex<br>Tersa al tacto/ Firme<br>Compatible con arnes chico</p>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    
+    <div class="modal" id="modal-dldcafe">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Dildo nacional largo 2</h1>
+          <h3>Masturbador / Estimulador / Juguete</h3>
+          <p>Disfruta de sus relieves, de buena textura y con ventosa para pegar en madera, azulejo(ba&ntilde;o) o piso.&nbsp;<br>Vive tus fantas&iacute;as!<br><br><strong>Material</strong>: Silicon/L&aacute;texTextura: Firme y smooth al tacto.<br><strong>Cuidados</strong>: Lave con shampoo antibacterial la primera vez y despu&eacute;s de cada uso.<br><strong>Uso</strong>: lubricante / condon, para evitar irritaciones/molestias.Compatible con arnes.Cuenta con fuerte ventosa.<br>* Las fotos y medidas son aproximados, el color puede variar de acuerdo al dispositivo donde se observe.</p>
+          <a href="images/dildo_blister_largo_2_medidas.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-dldcarne">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Dildo nacional largo 1</h1>
+          <h3>Masturbador / Estimulador / Juguete</h3>
+          <p>Disfruta de sus relieves, de buena textura y con ventosa para pegar en madera, azulejo(ba&ntilde;o) o piso.&nbsp;<br>Vive tus fantas&iacute;as!<br><br><strong>Material</strong>: Silicon/L&aacute;texTextura: Firme y smooth al tacto.<br><strong>Cuidados</strong>: Lave con shampoo antibacterial la primera vez y despu&eacute;s de cada uso.<br><strong>Uso</strong>: lubricante / condon, para evitar irritaciones/molestias.Compatible con arnes.Cuenta con fuerte ventosa.<br>* Las fotos y medidas son aproximados, el color puede variar de acuerdo al dispositivo donde se observe.</p>
+          <a href="images/dildo_blister_largo_1_medidas.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-dldcabezon">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Dildo nacional cabezon</h1>
+          <h3>Masturbador / Estimulador / Juguete</h3>
+          <p>Disfruta de sus relieves, de buena textura y con ventosa para pegar en madera, azulejo(ba&ntilde;o) o piso.&nbsp;<br>Vive tus fantas&iacute;as!<br><br><strong>Material</strong>: Silicon/L&aacute;texTextura: Firme y smooth al tacto.<br><strong>Cuidados</strong>: Lave con shampoo antibacterial la primera vez y despu&eacute;s de cada uso.<br><strong>Uso</strong>: lubricante / condon, para evitar irritaciones/molestias.Compatible con arnes.Cuenta con fuerte ventosa.<br>* Las fotos y medidas son aproximados, el color puede variar de acuerdo al dispositivo donde se observe.</p>
+          <a href="images/dildo_blister_cabezon1_medidas.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-dldnacrf1">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Dildo nacional real feel 1</h1>
+          <h3>Masturbador / Estimulador / Juguete</h3>
+          <p>Disfruta de sus relieves, de buena textura y con ventosa para pegar en madera, azulejo(ba&ntilde;o) o piso.&nbsp;<br>Vive tus fantas&iacute;as!<br><br><strong>Material</strong>: Silicon/L&aacute;texTextura: Realistica suave y se mantiene firme y smooth al tacto.<br><strong>Cuidados</strong>: Lave con shampoo antibacterial la primera vez y despu&eacute;s de cada uso.<br><strong>Uso</strong>: lubricante / condon, para evitar irritaciones/molestias.Compatible con arnes.Cuenta con fuerte ventosa.<br>* Las fotos y medidas son aproximados, el color puede variar de acuerdo al dispositivo donde se observe.</p>
+          <a href="images/dildo_real_feel_1_medidas.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-dldnacrf2">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Dildo nacional real feel 2</h1>
+          <h3>Masturbador / Estimulador / Juguete</h3>
+          <p>Disfruta de sus relieves, de buena textura y con ventosa para pegar en madera, azulejo(ba&ntilde;o) o piso.&nbsp;<br>Vive tus fantas&iacute;as!<br><br><strong>Material</strong>: Silicon/L&aacute;texTextura: Realistica suave y se mantiene firme y smooth al tacto.<br><strong>Cuidados</strong>: Lave con shampoo antibacterial la primera vez y despu&eacute;s de cada uso.<br><strong>Uso</strong>: lubricante / condon, para evitar irritaciones/molestias.Compatible con arnes.Cuenta con fuerte ventosa.<br>* Las fotos y medidas son aproximados, el color puede variar de acuerdo al dispositivo donde se observe.</p>
+          <a href="images/dildo_real_feel_2_medidas.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-dldjnar">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Dildo nacional Jelly - naranja</h1>
+          <h3>Masturbador / Estimulador / Juguete</h3>
+          <p>Disfruta de sus relieves, de buena textura y con ventosa para pegar en madera, azulejo(ba&ntilde;o) o piso.&nbsp;<br>Vive tus fantas&iacute;as!<br><br><strong>Material</strong>: Silicon/L&aacute;texTextura: Firme y smooth al tacto.<br><strong>Cuidados</strong>: Lave con shampoo antibacterial la primera vez y despu&eacute;s de cada uso.<br><strong>Uso</strong>: lubricante / condon, para evitar irritaciones/molestias.Compatible con arnes.Cuenta con fuerte ventosa.<br>* Las fotos y medidas son aproximados, el color puede variar de acuerdo al dispositivo donde se observe.</p>
+          <a href="images/dildo_perfect_jelly_1_medidas.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-dldjver">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Dildo nacional Jelly - verde</h1>
+          <h3>Masturbador / Estimulador / Juguete</h3>
+          <p>Disfruta de sus relieves, de buena textura y con ventosa para pegar en madera, azulejo(ba&ntilde;o) o piso.&nbsp;<br>Vive tus fantas&iacute;as!<br><br><strong>Material</strong>: Silicon/L&aacute;texTextura: Firme y smooth al tacto.<br><strong>Cuidados</strong>: Lave con shampoo antibacterial la primera vez y despu&eacute;s de cada uso.<br><strong>Uso</strong>: lubricante / condon, para evitar irritaciones/molestias.Compatible con arnes.Cuenta con fuerte ventosa.<br>* Las fotos y medidas son aproximados, el color puede variar de acuerdo al dispositivo donde se observe.</p>
+          <a href="images/dildo_perfect_jelly_2_medidas.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-dldflex1">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Dildo nacional Flexible 1</h1>
+          <h3>Masturbador / Estimulador / Juguete</h3>
+          <p>Disfruta de sus relieves, de buena textura y con ventosa para pegar en madera, azulejo(ba&ntilde;o) o piso. Puedes posicionarlo como desees, m&aacute;s curvo, ondearlo, su espina flexible te ayudar&aacute; a tener m&aacute;s opciones, gui&ntilde;o gui&ntilde;o. <br>Vive tus fantas&iacute;as!<br><br><strong>Material</strong>: Silicon/L&aacute;texTextura: Firme y smooth al tacto.<br><strong>Cuidados</strong>: Lave con shampoo antibacterial la primera vez y despu&eacute;s de cada uso.<br><strong>Uso</strong>: lubricante / condon, para evitar irritaciones/molestias.Compatible con arnes.Cuenta con fuerte ventosa.<br>* Las fotos y medidas son aproximados, el color puede variar de acuerdo al dispositivo donde se observe.</p>
+          <a href="images/dildo_flexible_1_medidas.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-dldflex2">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Dildo nacional Flexible 2</h1>
+          <h3>Masturbador / Estimulador / Juguete</h3>
+          <p>Disfruta de sus relieves, de buena textura y con ventosa para pegar en madera, azulejo(ba&ntilde;o) o piso. Puedes posicionarlo como desees, m&aacute;s curvo, ondearlo, su espina flexible te ayudar&aacute; a tener m&aacute;s opciones, gui&ntilde;o gui&ntilde;o. <br>Vive tus fantas&iacute;as!<br><br><strong>Material</strong>: Silicon/L&aacute;texTextura: Firme y smooth al tacto.<br><strong>Cuidados</strong>: Lave con shampoo antibacterial la primera vez y despu&eacute;s de cada uso.<br><strong>Uso</strong>: lubricante / condon, para evitar irritaciones/molestias.Compatible con arnes.Cuenta con fuerte ventosa.<br>* Las fotos y medidas son aproximados, el color puede variar de acuerdo al dispositivo donde se observe.</p>
+          <a href="images/dildo_flexible_3_medidas.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-dldvar1">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Dildo nacional cabezon</h1>
+          <h3>Masturbador / Estimulador / Juguete</h3>
+          <p>Disfruta de sus relieves, de buena textura y con ventosa para pegar en madera, azulejo(ba&ntilde;o) o piso.&nbsp;<br>Vive tus fantas&iacute;as!<br><br><strong>Material</strong>: Silicon/L&aacute;texTextura: Firme y smooth al tacto.<br><strong>Cuidados</strong>: Lave con shampoo antibacterial la primera vez y despu&eacute;s de cada uso.<br><strong>Uso</strong>: lubricante / condon, para evitar irritaciones/molestias.Compatible con arnes.Cuenta con fuerte ventosa.<br>* Las fotos y medidas son aproximados, el color puede variar de acuerdo al dispositivo donde se observe.</p>
+          <a href="images/img8.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    <div class="modal" id="modal-dldvar2">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+          <h1>Dildo nacional cabezon</h1>
+          <h3>Masturbador / Estimulador / Juguete</h3>
+          <p>Disfruta de sus relieves, de buena textura y con ventosa para pegar en madera, azulejo(ba&ntilde;o) o piso.&nbsp;<br>Vive tus fantas&iacute;as!<br><br><strong>Material</strong>: Silicon/L&aacute;texTextura: Firme y smooth al tacto.<br><strong>Cuidados</strong>: Lave con shampoo antibacterial la primera vez y despu&eacute;s de cada uso.<br><strong>Uso</strong>: lubricante / condon, para evitar irritaciones/molestias.Compatible con arnes.Cuenta con fuerte ventosa.<br>* Las fotos y medidas son aproximados, el color puede variar de acuerdo al dispositivo donde se observe.</p>
+          <a href="images/img_b10.jpg" target="_blank">Imagen completa <i class="fas fa-heart"></i></a>
+          <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+    
+    <!-- Script -->    
+    <script type="text/javascript">
+        const modals = document.querySelectorAll("[data-modal]");
+        modals.forEach(function (trigger) {
+            trigger.addEventListener("click", function (event) {
+            event.preventDefault();
+            const modal = document.getElementById(trigger.dataset.modal);
+            modal.classList.add("open");
+            const exits = modal.querySelectorAll(".modal-exit");
+            exits.forEach(function (exit) {
+                exit.addEventListener("click", function (event) {
+                event.preventDefault();
+                modal.classList.remove("open");
+                });
+            });
+            });
+        });
+    </script>
 </body>
 </html>
